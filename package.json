@@ -1,6 +1,6 @@
 {
-  "name": "react-native-nbbase",
-  "version": "1.4.16-CMP3",
+  "name": "react-native-yiyibase",
+  "version": "1.0.0",
   "description": "react-native app开发全家桶",
   "main": "lib/js/index.js",
   "types": "lib/js/index.d.ts",
@@ -20,7 +20,7 @@
     "android": "npx react-native  run-android"
   },
   "keywords": [
-    "react-native-nbbase"
+    "react-native-yiyibase"
   ],
   "author": "Llong",
   "license": "ISC",

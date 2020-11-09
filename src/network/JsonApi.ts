@@ -81,7 +81,7 @@ export function callApi<T>(api: string, method?: Method, params?: any, headers?:
         let d: any = r.data ? (typeof r.data === 'string' ? JSON.parse(r.data) : r.data) : null;
         if (d) {
             if (d.status) {
-                if (d.status.code === 1000) {
+                if (d.status.code === 1) {
                     d = d.result;
                 } else {
                     let message = d.status.message;
