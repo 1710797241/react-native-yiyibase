@@ -22,7 +22,7 @@
   "keywords": [
     "react-native-yiyibase"
   ],
-  "author": "Llong",
+  "author": "yiyi",
   "license": "ISC",
   "dependencies": {
     "@react-native-community/async-storage": "^1.11.0",
