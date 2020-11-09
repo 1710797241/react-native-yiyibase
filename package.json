@@ -13,7 +13,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://gitee.com/yewara/react-native-yiyi-base.git"
+    "url": "https://github.com/1710797241/react-native-yiyibase.git"
   },
   "scripts": {
     "start": "npx react-native start",
