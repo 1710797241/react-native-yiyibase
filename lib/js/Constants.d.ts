@@ -1,6 +1,7 @@
 import { NBConfig } from "./models";
 export default class Constants {
     static BaseDomain?: string;
+    static communityId?: number;
     static isDebug: boolean;
     static headers?: any;
     static config?: NBConfig;
