@@ -8,7 +8,9 @@ import Mine from './mine'
 const HomeStack  =  createStackNavigator()
 function HomeStackScreen() {
     return (
-      <HomeStack.Navigator>
+      <HomeStack.Navigator 
+     
+      mode="card"  headerMode="none">
         <HomeStack.Screen name="Home" component={Index} />
         <HomeStack.Screen name="Details" component={Mine} />
       </HomeStack.Navigator>
@@ -17,7 +19,7 @@ function HomeStackScreen() {
   const MineStack  =  createStackNavigator()
 function MineStackScreen() {
     return (
-      <MineStack.Navigator>
+      <MineStack.Navigator  mode="card" headerMode="none">
         <MineStack.Screen name="Mine" component={Mine} />
         <MineStack.Screen name="Details2" component={Index} />
       </MineStack.Navigator>
