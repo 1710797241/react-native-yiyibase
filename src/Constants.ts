@@ -10,6 +10,7 @@ const nbConfigKey = "__nb_config";
 
 export default class Constants {
     public static BaseDomain?: string;
+    public static communityId?: number;
     public static isDebug: boolean = false;
     public static headers?: any = {};
     public static config?: NBConfig = {

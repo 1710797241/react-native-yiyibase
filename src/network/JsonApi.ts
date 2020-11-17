@@ -70,7 +70,9 @@ export const appendGetUrl = (url: string, params?: any) => {
  * @param headers 
  */
 export function callApi<T>(api: string, method?: Method, params?: any, headers?: any): Promise<T | null> {
-    console.log('接口调用', '访问api', api, method, params);
+    params.communityId = Constants.communityId
+    console.log('===========接口调用', '访问url====', api, method, params);
+
     return createNBNetworkApi(method, headers).then((a) => {
         if (method) {
             return a({ url: api, method, params })
@@ -82,7 +84,10 @@ export function callApi<T>(api: string, method?: Method, params?: any, headers?:
         if (d) {
             if (d.status) {
                 if (d.status.code ==  1) {
+                    console.log("====操作成功===接口响应数据",d.result)
+
                     d = d.result;
+
                 } else {
                     let message = d.status.message;
                     if (Constants.isDebug) {
