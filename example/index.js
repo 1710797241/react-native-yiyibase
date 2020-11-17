@@ -1,11 +1,19 @@
 import React from "react";
-import {View,Text} from 'react-native'
+import {View,Text,TouchableOpacity} from 'react-native'
 
 
 export default class App extends React.Component {
+   
+
     render() {
+        const { navigation } = this.props;
         return <View>
-            <Text>测试</Text>
+            <TouchableOpacity 
+                onPress={()=>{
+                    navigation.navigate('Details')
+                }}
+            ><Text>首页</Text></TouchableOpacity>
+
         </View>
     }
 }
