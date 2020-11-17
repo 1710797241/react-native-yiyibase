@@ -2,7 +2,6 @@
   "name": "react-native-yiyibase",
   "version": "1.0.8",
   "description": "react-native",
-  "main": "lib/js/index.js",
   "types": "lib/js/index.d.ts",
   "files": [
     "lib/js",
@@ -17,6 +16,7 @@
   },
   "scripts": {
     "start": "npx react-native start",
+    "bundle-android":"react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res",
     "android": "npx react-native  run-android"
   },
   "keywords": [

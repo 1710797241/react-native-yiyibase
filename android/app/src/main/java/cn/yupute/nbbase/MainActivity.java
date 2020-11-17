@@ -13,7 +13,7 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "RNAMap3D";
+    return "RNNBase";
   }
 
   @Override

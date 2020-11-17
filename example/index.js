@@ -1,8 +1,11 @@
 import React from "react";
-import { } from "react-native-nbbase"
+import {View,Text} from 'react-native'
+
 
 export default class App extends React.Component {
     render() {
-        return null;
+        return <View>
+            <Text>测试</Text>
+        </View>
     }
 }
