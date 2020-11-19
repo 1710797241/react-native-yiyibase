@@ -1,7 +1,5 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-
 import { Root, StyleProvider, View } from "native-base";
 import React from "react";
 import Constants from "../Constants";
@@ -13,20 +11,18 @@ import NBCompApp from "./NBCompApp";
 
 export interface NBCompBaseAppRootAppRouter {
     name: string,
-    component: React.ComponentType<any>
+    comp: React.ComponentType<any>
 }
 
 export interface NBCompBaseAppRootPros {
     theme?: any,
     routes?: Array<NBCompBaseAppRootAppRouter>,
-    bottomTabRouters?:Array<NBCompBaseAppRootAppRouter>,
     useInstantsLibs?: boolean,
     nbConfig?: NBConfig,
     themeConfig?: NBCompAppThemeConfig
 }
 
 const Stack = createStackNavigator();
-const BottomTabNavigator = createBottomTabNavigator();
 
 export class NBCompBaseAppRoot extends React.Component<NBCompBaseAppRootPros, { isLoaded?: boolean }> {
 
@@ -58,10 +54,8 @@ export class NBCompBaseAppRoot extends React.Component<NBCompBaseAppRootPros, { 
         if (!this.state.isLoaded) {
             return <View />
         }
-        const { theme, routes,useInstantsLibs } = this.props;
-        let bottomTab: Array<NBCompBaseAppRootAppRouter> = [];
-        let appRouters:Array<NBCompBaseAppRootAppRouter> = [];
-        
+        const { theme, routes, useInstantsLibs } = this.props;
+        let appRouters: Array<NBCompBaseAppRootAppRouter> = [];
         if (routes) {
             appRouters = [
                 ...routes
@@ -71,25 +65,28 @@ export class NBCompBaseAppRoot extends React.Component<NBCompBaseAppRootPros, { 
         if (useInstantsLibs === undefined || useInstantsLibs) {
             appRouters.push({
                 name: NBPages.InstantPage,
-                component: NBPageInstantDetail
+                comp: NBPageInstantDetail
             })
         }
 
         return <Root>
-            
-               <NavigationContainer ref={o => NBCompApp.navigation = o}>
-                      <Stack.Navigator>
-                    
+            {
+                theme ? <StyleProvider>
+                    <NavigationContainer ref={o => NBCompApp.navigation = o}>
+                        <Stack.Navigator headerMode="none">
                             {
-                                appRouters.map(v => <Stack.Screen key={v.name} name={v.name} component={v.component}></Stack.Screen>)
+                                appRouters.map(v => <Stack.Screen key={v.name} name={v.name} component={v.comp}></Stack.Screen>)
                             }
-                       
-                      
-                      </Stack.Navigator>
-                   
-                       
+                        </Stack.Navigator>
                     </NavigationContainer>
-            
+                </StyleProvider> : <NavigationContainer ref={o => NBCompApp.navigation = o}>
+                        <Stack.Navigator headerMode="none">
+                            {
+                                appRouters.map(v => <Stack.Screen key={v.name} name={v.name} component={v.comp}></Stack.Screen>)
+                            }
+                        </Stack.Navigator>
+                    </NavigationContainer>
+            }
         </Root>
     }
 }
