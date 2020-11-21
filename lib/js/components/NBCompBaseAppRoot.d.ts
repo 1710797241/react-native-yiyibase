@@ -3,12 +3,11 @@ import { NBConfig } from "../models";
 import { NBCompAppThemeConfig } from "./types";
 export interface NBCompBaseAppRootAppRouter {
     name: string;
-    component: React.ComponentType<any>;
+    comp: React.ComponentType<any>;
 }
 export interface NBCompBaseAppRootPros {
     theme?: any;
     routes?: Array<NBCompBaseAppRootAppRouter>;
-    bottomTabRouters?: Array<NBCompBaseAppRootAppRouter>;
     useInstantsLibs?: boolean;
     nbConfig?: NBConfig;
     themeConfig?: NBCompAppThemeConfig;

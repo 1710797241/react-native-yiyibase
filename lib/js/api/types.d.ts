@@ -15,11 +15,11 @@ export declare const DefualtHeaders: {
     Server: string;
 };
 export declare enum StatusCode {
-    SUCCESS = 1000,
-    FAIL = 1001,
-    SYS_BUSY = 1002,
-    UNLOGIN = 1003,
-    PARAMINVALID = 1004
+    SUCCESS = 1,
+    FAIL = 2,
+    SYS_BUSY = 3,
+    UNLOGIN = 4,
+    PARAMINVALID = 5
 }
 export interface RequestParams {
     _headers?: any;
