@@ -2,7 +2,7 @@ import Axios, { AxiosInstance, AxiosRequestConfig, Method } from "axios";
 import { HeaderManager } from "./HeaderManager";
 import Constants from "../Constants";
 import { showError } from "../util";
-
+import {StatusCode} from '../api/types'
 /**
  * 
  * @param method 
@@ -83,7 +83,7 @@ export function callApi<T>(api: string, method?: Method, params?: any, headers?:
         let d: any = r.data ? (typeof r.data === 'string' ? JSON.parse(r.data) : r.data) : null;
         if (d) {
             if (d.status) {
-                if (d.status.code ==  1) {
+                if (d.status.code ==  StatusCode.SUCCESS) {
                     console.log("====操作成功===接口响应数据",d.result)
 
                     d = d.result;

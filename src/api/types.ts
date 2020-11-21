@@ -25,7 +25,7 @@ export const DefualtHeaders = {
 }
 
 export enum StatusCode {
-    SUCCESS = 1000, //操作成功
+    SUCCESS = 1, //操作成功
     FAIL, //操作失败
     SYS_BUSY, //系统繁忙
     UNLOGIN, //用户未登录
