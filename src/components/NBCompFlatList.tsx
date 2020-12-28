@@ -65,7 +65,7 @@ export class NBCompFlatList<T = any> extends React.Component<NBCompFlatListProps
             ...fetchParams
         }
         const pnf = this.props.pageNoField ? this.props.pageNoField : 'pageNumber';
-        const pns = this.props.pageNoField ? this.props.pageNoField : 'pageSize';
+        const pns = this.props.pageSizeField ? this.props.pageSizeField : 'pageSize';
         params[pnf] = page === undefined ? 1 : page;
         params[pns] = size === undefined ? (this.props.pageSize ? this.props.pageSize : 10) : size;
         this.page = params[pnf];
@@ -78,7 +78,7 @@ export class NBCompFlatList<T = any> extends React.Component<NBCompFlatListProps
                 data: Array<T>,
                 total: number
             }>(this.props.api, this.props.method ? this.props.method : 'post', params).then(r => {
-                this.total = r.total;
+                this.total = r.all;
                 return this.appendData(r.data, params[pnf] === 1);
             }).then(() => {
                 return this.onRefreshFinish(undefined, this.page > 1);
@@ -229,6 +229,7 @@ export class NBCompFlatList<T = any> extends React.Component<NBCompFlatListProps
                 renderItem={this.props.renderItem}
                 ListHeaderComponent={this.props.ListHeaderComponent}
                 horizontal={this.props.horizontal === undefined ? false : this.props.horizontal}
+               
                 onEndReached={(info: { distanceFromEnd: number }) => {
                     if (this.state.data.length < this.total && this.total > 0 && this.state.data.length >= this.size) {
                         this.page = this.page === undefined || this.page === NaN ? 1 : this.page;
