@@ -76,6 +76,7 @@ export class NBCompFlatList<T = any> extends React.Component<NBCompFlatListProps
             if(!is) return Promise.resolve(true);
             return callApi<{
                 data: Array<T>,
+                all:number,
                 total: number
             }>(this.props.api, this.props.method ? this.props.method : 'post', params).then(r => {
                 this.total = r.all;

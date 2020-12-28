@@ -34,6 +34,7 @@ export interface ResponseModel {
 }
 export interface PaginationDataModel<T extends DataModel> extends DataModel {
     total: number;
+    all: number;
     data?: Array<T> | undefined | null;
 }
 export declare class CacheStorage<D> {
